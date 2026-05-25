@@ -790,8 +790,6 @@ async function paintMe() {
   formData.append('prompt', PROMPT);
   formData.append('n', '1');
   formData.append('size', '512x512');
-  formData.append('response_format', 'b64_json');
-
   abortController = new AbortController();
   try {
     const res = await fetch('https://api.openai.com/v1/images/edits', {
@@ -805,9 +803,9 @@ async function paintMe() {
       throw new Error(err?.error?.message || 'API error ' + res.status);
     }
     const data = await res.json();
-    const b64 = data.data?.[0]?.b64_json;
-    if (!b64) throw new Error('No image returned');
-    resultDataUrl = 'data:image/png;base64,' + b64;
+    const url = data.data?.[0]?.url;
+    if (!url) throw new Error('No image returned');
+    resultDataUrl = url;
     hideProcessing();
     showResult(capturedDataUrl, resultDataUrl);
   } catch(e) {
