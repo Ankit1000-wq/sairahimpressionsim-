@@ -35,6 +35,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* ─── NAVBAR ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(250,247,242,0.92);
@@ -56,6 +57,7 @@
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,0.5); }
 
+  /* ─── HERO ─── */
   #hero {
     min-height: 100vh;
     background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1280px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg') center/cover no-repeat;
@@ -122,6 +124,7 @@
   }
   @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
+  /* ─── SECTIONS ─── */
   section { padding: 80px 24px; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label {
@@ -145,6 +148,7 @@
     line-height: 1.65;
   }
 
+  /* ─── EDUCATION ─── */
   #education { background: var(--canvas); }
   .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 56px; }
   .pillar {
@@ -190,6 +194,7 @@
   .tl-year { color: var(--gold); font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
   .tl-text { color: rgba(255,255,255,.6); font-size: .82rem; line-height: 1.5; }
 
+  /* ─── CAPTURE ─── */
   #capture { background: var(--cream); }
   .tab-bar {
     display: flex; background: rgba(232,208,144,.3); border: 1px solid rgba(201,168,76,.2);
@@ -206,6 +211,7 @@
   .capture-panel { display: none; }
   .capture-panel.active { display: flex; flex-direction: column; align-items: center; }
 
+  /* Camera */
   .camera-wrap {
     position: relative; width: 100%; max-width: 420px;
     border-radius: 18px; overflow: hidden;
@@ -225,6 +231,7 @@
   .camera-hint { color: rgba(26,20,16,.4); font-size: .8rem; margin: 10px 0 16px; font-style: italic; font-family: var(--italic); }
   .camera-error { background: #fff3f0; border: 1px solid #ffcdd2; border-radius: 12px; padding: 20px; text-align: center; color: #b71c1c; font-size: .9rem; max-width: 380px; }
 
+  /* Upload zone */
   .upload-zone {
     width: 100%; max-width: 420px;
     border: 2px dashed rgba(201,168,76,.4); border-radius: 18px;
@@ -239,6 +246,7 @@
   .upload-sub strong { color: var(--gold); cursor: pointer; }
   #file-input { display: none; }
 
+  /* Preview */
   #preview-wrap { display: none; flex-direction: column; align-items: center; }
   .preview-frame {
     position: relative; width: 100%; max-width: 380px;
@@ -257,6 +265,7 @@
   }
   .btn-outline:hover { border-color: var(--gold); color: var(--ink); }
 
+  /* ─── PROCESSING ─── */
   #processing-overlay {
     display: none; position: fixed; inset: 0; z-index: 200;
     align-items: center; justify-content: center; text-align: center;
@@ -288,6 +297,7 @@
   .btn-cancel { margin-top: 20px; background: transparent; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.5); font-size: .8rem; padding: 8px 20px; border-radius: 999px; cursor: pointer; transition: all .2s; }
   .btn-cancel:hover { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.8); }
 
+  /* ─── RESULT ─── */
   #result { background: var(--ink); display: none; }
   #result.show { display: block; }
   .result-title { color: #fff; }
@@ -315,9 +325,10 @@
   .btn-again { padding: 13px 28px; background: transparent; border: 1.5px solid rgba(255,255,255,.15); color: rgba(255,255,255,.5); font-family: var(--sans); font-size: .95rem; border-radius: 999px; cursor: pointer; transition: all .2s; }
   .btn-again:hover { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.8); }
 
+  /* ─── GALLERY ─── */
   #gallery { background: var(--canvas); }
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-  .gallery-card { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.1); cursor: pointer; position: relative; transition: transform .3s, box-shadow .3s; }
+  .gallery-card { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.1); cursor: pointer; position: relative; group; transition: transform .3s, box-shadow .3s; }
   .gallery-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
   .gallery-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform .5s; }
   .gallery-card:hover img { transform: scale(1.05); }
@@ -329,10 +340,12 @@
   .gallery-card-title { color: #fff; font-family: var(--serif); font-size: .85rem; font-weight: 700; }
   .gallery-card-artist { color: var(--gold); font-family: var(--italic); font-style: italic; font-size: .75rem; margin-top: 2px; }
 
+  /* ─── FOOTER ─── */
   footer { background: var(--ink); color: rgba(255,255,255,.35); text-align: center; padding: 28px 24px; }
   footer p { font-family: var(--italic); font-style: italic; font-size: .85rem; margin-bottom: 4px; }
   footer span { font-family: var(--sans); font-size: .75rem; }
 
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 640px) {
     .hero-btns { flex-direction: column; align-items: center; }
     .btn-primary, .btn-secondary { width: 100%; max-width: 300px; }
@@ -347,11 +360,13 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <div class="nav-logo" onclick="scrollToTop()">🎨 Impressionism <span>Studio</span></div>
   <button class="nav-cta" onclick="scrollToCapture()">Transform Yourself →</button>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-content">
     <div class="hero-badge">✦ Impressionism since 1874</div>
@@ -371,60 +386,147 @@
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
     <p class="section-label">Art History</p>
     <h2 class="section-title">What is <em>Impressionism?</em></h2>
     <div class="divider"></div>
     <p class="section-sub">Born in Paris in 1874, Impressionism was a revolution in art — capturing the fleeting beauty of the everyday world through light, color, and feeling.</p>
+
     <div class="pillars">
-      <div class="pillar"><div class="pillar-icon" style="background:rgba(201,168,76,.12)">☀️</div><h3>Light &amp; Color</h3><p>Impressionists were obsessed with natural light. They painted the same scene at different times of day to show how light transforms everything — a haystack at noon looks nothing like at sunset.</p></div>
-      <div class="pillar"><div class="pillar-icon" style="background:rgba(74,127,165,.12)">🖌️</div><h3>Loose Brushstrokes</h3><p>Instead of blending smoothly, Impressionists applied dabs of pure color side-by-side. Up close it looks rough — from a distance, the eye blends them into vibrant, living scenes.</p></div>
-      <div class="pillar"><div class="pillar-icon" style="background:rgba(212,119,138,.12)">☕</div><h3>Everyday Life</h3><p>Rather than grand historical scenes, Impressionists painted ordinary moments: people at cafés, children playing, dancers in sunlight. Everyday life itself was worthy of art.</p></div>
+      <div class="pillar">
+        <div class="pillar-icon" style="background:rgba(201,168,76,.12)">☀️</div>
+        <h3>Light & Color</h3>
+        <p>Impressionists were obsessed with natural light. They painted the same scene at different times of day to show how light transforms everything — a haystack at noon looks nothing like at sunset.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon" style="background:rgba(74,127,165,.12)">🖌️</div>
+        <h3>Loose Brushstrokes</h3>
+        <p>Instead of blending smoothly, Impressionists applied dabs of pure color side-by-side. Up close it looks rough — from a distance, the eye blends them into vibrant, living scenes.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon" style="background:rgba(212,119,138,.12)">☕</div>
+        <h3>Everyday Life</h3>
+        <p>Rather than grand historical scenes, Impressionists painted ordinary moments: people at cafés, children playing, dancers in sunlight. Everyday life itself was worthy of art.</p>
+      </div>
     </div>
+
     <h2 class="section-title" style="margin-bottom:14px">The <em>Masters</em></h2>
     <div class="divider"></div>
+
     <div class="artists-grid">
-      <div class="artist-card"><img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/800px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="Water Lilies" loading="lazy" /><div class="artist-info"><div class="artist-head"><img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/440px-Claude_Monet_1899_Nadar_crop.jpg" alt="Monet" loading="lazy" /><div><div class="artist-name">Claude Monet</div><div class="artist-years">1840–1926</div></div></div><p class="artist-desc">The father of Impressionism. Monet painted his famous Water Lilies while almost blind — their dreamy haze came from his cataracts. He created 250 Water Lily paintings.</p><div class="palette-label">Signature Colors</div><div class="palette"><div class="swatch" style="background:#7EBFCC"></div><div class="swatch" style="background:#C8E6C9"></div><div class="swatch" style="background:#FFF9C4"></div><div class="swatch" style="background:#E3C9A8"></div><div class="swatch" style="background:#B0BEC5"></div></div></div></div>
-      <div class="artist-card"><img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bougival.jpg/800px-Bougival.jpg" alt="Dance at Bougival" loading="lazy" /><div class="artist-info"><div class="artist-head"><img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg/440px-Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg" alt="Renoir" loading="lazy" /><div><div class="artist-name">Pierre-Auguste Renoir</div><div class="artist-years">1841–1919</div></div></div><p class="artist-desc">Renoir painted the joy of life. His portraits radiate warmth — figures glow as if lit from within. He created over 6,000 paintings and married a woman he painted.</p><div class="palette-label">Signature Colors</div><div class="palette"><div class="swatch" style="background:#F8C8A0"></div><div class="swatch" style="background:#E8A87C"></div><div class="swatch" style="background:#D4A0C0"></div><div class="swatch" style="background:#98C8B0"></div><div class="swatch" style="background:#F0E0B8"></div></div></div></div>
-      <div class="artist-card"><img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/800px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg" alt="Boulevard Montmartre" loading="lazy" /><div class="artist-info"><div class="artist-head"><img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Camille_Pissarro_-_Self-Portrait_-_1873.jpg/440px-Camille_Pissarro_-_Self-Portrait_-_1873.jpg" alt="Pissarro" loading="lazy" /><div><div class="artist-name">Camille Pissarro</div><div class="artist-years">1830–1903</div></div></div><p class="artist-desc">The "dean of the Impressionists" — the only artist to show in all 8 exhibitions. He mentored Cézanne and Gauguin, painting rural life and Parisian boulevards.</p><div class="palette-label">Signature Colors</div><div class="palette"><div class="swatch" style="background:#8CA870"></div><div class="swatch" style="background:#C8B870"></div><div class="swatch" style="background:#E8D090"></div><div class="swatch" style="background:#A8C890"></div><div class="swatch" style="background:#787858"></div></div></div></div>
+      <div class="artist-card">
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/800px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="Water Lilies" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="artist-info">
+          <div class="artist-head">
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/440px-Claude_Monet_1899_Nadar_crop.jpg" alt="Monet" loading="lazy" referrerpolicy="no-referrer" />
+            <div><div class="artist-name">Claude Monet</div><div class="artist-years">1840–1926</div></div>
+          </div>
+          <p class="artist-desc">The father of Impressionism. Monet painted his famous Water Lilies while almost blind — their dreamy haze came from his cataracts. He created 250 Water Lily paintings.</p>
+          <div class="palette-label">Signature Colors</div>
+          <div class="palette">
+            <div class="swatch" style="background:#7EBFCC" title="Sky Blue"></div>
+            <div class="swatch" style="background:#C8E6C9" title="Pale Green"></div>
+            <div class="swatch" style="background:#FFF9C4" title="Soft Yellow"></div>
+            <div class="swatch" style="background:#E3C9A8" title="Warm Sand"></div>
+            <div class="swatch" style="background:#B0BEC5" title="Silver Blue"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bougival.jpg/800px-Bougival.jpg" alt="Dance at Bougival" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="artist-info">
+          <div class="artist-head">
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg/440px-Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg" alt="Renoir" loading="lazy" referrerpolicy="no-referrer" />
+            <div><div class="artist-name">Pierre-Auguste Renoir</div><div class="artist-years">1841–1919</div></div>
+          </div>
+          <p class="artist-desc">Renoir painted the joy of life. His portraits radiate warmth — figures glow as if lit from within. He created over 6,000 paintings and married a woman he painted.</p>
+          <div class="palette-label">Signature Colors</div>
+          <div class="palette">
+            <div class="swatch" style="background:#F8C8A0" title="Warm Peach"></div>
+            <div class="swatch" style="background:#E8A87C" title="Golden Tan"></div>
+            <div class="swatch" style="background:#D4A0C0" title="Soft Rose"></div>
+            <div class="swatch" style="background:#98C8B0" title="Mint Green"></div>
+            <div class="swatch" style="background:#F0E0B8" title="Cream"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/800px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg" alt="Boulevard Montmartre" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="artist-info">
+          <div class="artist-head">
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Camille_Pissarro_-_Self-Portrait_-_1873.jpg/440px-Camille_Pissarro_-_Self-Portrait_-_1873.jpg" alt="Pissarro" loading="lazy" referrerpolicy="no-referrer" />
+            <div><div class="artist-name">Camille Pissarro</div><div class="artist-years">1830–1903</div></div>
+          </div>
+          <p class="artist-desc">The "dean of the Impressionists" — the only artist to show in all 8 Impressionist exhibitions. He mentored Cézanne and Gauguin, painting rural life and Parisian boulevards.</p>
+          <div class="palette-label">Signature Colors</div>
+          <div class="palette">
+            <div class="swatch" style="background:#8CA870" title="Forest Green"></div>
+            <div class="swatch" style="background:#C8B870" title="Harvest Gold"></div>
+            <div class="swatch" style="background:#E8D090" title="Wheat"></div>
+            <div class="swatch" style="background:#A8C890" title="Spring Green"></div>
+            <div class="swatch" style="background:#787858" title="Olive"></div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="timeline">
-      <div><div class="tl-year">1841</div><div class="tl-text">Paint tube invented — outdoor painting becomes possible</div></div>
-      <div><div class="tl-year">1874</div><div class="tl-text">First Impressionist Exhibition — critics call it a disaster</div></div>
-      <div><div class="tl-year">1890s</div><div class="tl-text">Monet paints Water Lilies at Giverny</div></div>
-      <div><div class="tl-year">Today</div><div class="tl-text">Most beloved paintings on Earth</div></div>
+      <div><div class="tl-year">1841</div><div class="tl-text">Paint tube invented — outdoor painting becomes possible for the first time</div></div>
+      <div><div class="tl-year">1874</div><div class="tl-text">First Impressionist Exhibition — critics call it a disaster. History proves them wrong.</div></div>
+      <div><div class="tl-year">1890s</div><div class="tl-text">Monet paints Water Lilies at Giverny — the garden he built himself still exists today</div></div>
+      <div><div class="tl-year">Today</div><div class="tl-text">Impressionist works are the most beloved and valuable paintings on Earth</div></div>
     </div>
   </div>
 </section>
 
+<!-- CAPTURE -->
 <section id="capture">
   <div class="section-inner" style="max-width:600px">
     <p class="section-label">Your Portrait</p>
     <h2 class="section-title">Become the <em>Subject</em></h2>
     <div class="divider"></div>
     <p class="section-sub">Take a selfie or upload a photo. AI will paint you into a beautiful Impressionist scene.</p>
+
     <div class="tab-bar">
       <button class="tab active" id="tab-camera" onclick="switchTab('camera')">📷 Take Photo</button>
       <button class="tab" id="tab-upload" onclick="switchTab('upload')">🖼 Upload</button>
     </div>
+
+    <!-- Camera panel -->
     <div class="capture-panel active" id="panel-camera">
-      <div class="camera-wrap"><video id="video" autoplay playsinline muted></video><div class="viewfinder-corner vc-tl"></div><div class="viewfinder-corner vc-tr"></div><div class="viewfinder-corner vc-bl"></div><div class="viewfinder-corner vc-br"></div></div>
+      <div class="camera-wrap" id="camera-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <div class="viewfinder-corner vc-tl"></div>
+        <div class="viewfinder-corner vc-tr"></div>
+        <div class="viewfinder-corner vc-bl"></div>
+        <div class="viewfinder-corner vc-br"></div>
+      </div>
       <div id="camera-error" class="camera-error" style="display:none"></div>
       <p class="camera-hint">Position your face in the center and smile! 😊</p>
       <button class="btn-primary" id="capture-btn" onclick="capturePhoto()" disabled>Starting camera…</button>
     </div>
+
+    <!-- Upload panel -->
     <div class="capture-panel" id="panel-upload">
-      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()"
+        ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
         <div class="upload-icon">🖼️</div>
-        <div class="upload-title">Drag &amp; drop your photo here</div>
-        <p class="upload-sub">or <strong>click to browse</strong></p>
+        <div class="upload-title">Drag & drop your photo here</div>
+        <p class="upload-sub">or <strong onclick="document.getElementById('file-input').click()">click to browse</strong></p>
         <p style="margin-top:10px;color:rgba(26,20,16,.35);font-size:.75rem">JPEG, PNG or WebP · Max 20MB</p>
       </div>
       <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" onchange="handleFile(event)" />
     </div>
+
+    <!-- Preview -->
     <div id="preview-wrap">
-      <div class="preview-frame"><img id="preview-img" src="" alt="Your photo" /></div>
+      <div class="preview-frame">
+        <img id="preview-img" src="" alt="Your photo" />
+      </div>
       <p class="preview-tag">✨ Looking great! Ready to become a masterpiece?</p>
       <div class="preview-btns">
         <button class="btn-outline" onclick="retake()">↩ Retake</button>
@@ -434,6 +536,7 @@
   </div>
 </section>
 
+<!-- PROCESSING OVERLAY -->
 <div id="processing-overlay">
   <div class="processing-bg" id="processing-bg"></div>
   <div class="processing-overlay-dark"></div>
@@ -441,22 +544,37 @@
     <div class="spinner"></div>
     <h2 class="processing-title">Painting your portrait…</h2>
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <div class="fact-box"><div class="fact-label">Did you know?</div><div class="fact-text" id="fact-text"></div></div>
+    <div class="fact-box">
+      <div class="fact-label">Did you know?</div>
+      <div class="fact-text" id="fact-text"></div>
+    </div>
     <p class="processing-note">This usually takes 20–40 seconds</p>
     <button class="btn-cancel" onclick="cancelTransform()">Cancel</button>
   </div>
 </div>
 
+<!-- RESULT -->
 <section id="result">
   <div class="section-inner">
     <p class="section-label" style="color:var(--gold)">Your Masterpiece</p>
     <h2 class="section-title result-title">Behold Your <em>Portrait</em></h2>
     <div class="divider"></div>
     <p class="result-sub" id="result-compliment"></p>
+
     <div class="result-grid">
-      <div class="result-img-wrap"><div class="original-frame"><img id="result-original" src="" alt="Original" /></div><div class="img-label original-label">Your photo</div></div>
-      <div class="result-img-wrap"><div class="painting-frame"><img id="result-painting" src="" alt="Impressionist portrait" /><div class="painting-sig">✦ Impressionism Studio</div></div><div class="img-label painting-label">Your Impressionist portrait</div></div>
+      <div class="result-img-wrap">
+        <div class="original-frame"><img id="result-original" src="" alt="Original" /></div>
+        <div class="img-label original-label">Your photo</div>
+      </div>
+      <div class="result-img-wrap">
+        <div class="painting-frame">
+          <img id="result-painting" src="" alt="Impressionist portrait" />
+          <div class="painting-sig">✦ Impressionism Studio</div>
+        </div>
+        <div class="img-label painting-label">Your Impressionist portrait</div>
+      </div>
     </div>
+
     <div class="result-actions">
       <button class="btn-download" onclick="downloadPainting()">⬇ Download Portrait</button>
       <button class="btn-share" onclick="sharePainting()">↗ Share</button>
@@ -465,6 +583,7 @@
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery">
   <div class="section-inner">
     <p class="section-label">Inspiration</p>
@@ -475,26 +594,38 @@
   </div>
 </section>
 
+<!-- API KEY SETUP MODAL -->
 <div id="api-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(26,20,16,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px">
   <div style="background:#FAF7F2;border-radius:24px;padding:36px 32px;max-width:440px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.4);text-align:center">
     <div style="font-size:2.5rem;margin-bottom:12px">🎨</div>
     <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px">Welcome to Impressionism Studio</h2>
-    <p style="color:rgba(26,20,16,.6);font-size:.9rem;line-height:1.6;margin-bottom:24px">To transform photos into paintings, paste your OpenAI API key below. It is stored only in your browser — never sent anywhere else.</p>
-    <input id="api-key-input" type="password" placeholder="sk-proj-..." style="width:100%;padding:14px 16px;border:2px solid rgba(201,168,76,.3);border-radius:12px;font-size:.95rem;outline:none;background:#fff;margin-bottom:14px" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" onkeydown="if(event.key==='Enter')saveAndClose()" />
-    <button onclick="saveAndClose()" style="width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#fff;border:none;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer">Save &amp; Start →</button>
+    <p style="color:rgba(26,20,16,.6);font-size:.9rem;line-height:1.6;margin-bottom:24px">To transform photos into paintings, paste your OpenAI API key below. It's stored only in your browser — never sent anywhere else.</p>
+    <input id="api-key-input" type="password" placeholder="sk-proj-..." style="width:100%;padding:14px 16px;border:2px solid rgba(201,168,76,.3);border-radius:12px;font-size:.95rem;font-family:'Lato',sans-serif;outline:none;background:#fff;margin-bottom:14px;transition:border-color .2s" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" onkeydown="if(event.key==='Enter')saveAndClose()" />
+    <button onclick="saveAndClose()" style="width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#fff;border:none;border-radius:999px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,.35)">Save & Start →</button>
     <p style="margin-top:16px;font-size:.75rem;color:rgba(26,20,16,.4)">Get a free key at <strong>platform.openai.com</strong> → API Keys</p>
   </div>
 </div>
 
 <footer>
   <p>Impressionism Studio — a school project celebrating the art of light, color, and beauty</p>
-  <span>Powered by AI · Inspired by Monet, Renoir &amp; Pissarro</span>
+  <span>Powered by AI · Inspired by Monet, Renoir & Pissarro</span>
 </footer>
 
 <script>
+// ─── CONFIGURATION ───────────────────────────────────────
+// API key is stored in browser localStorage — entered once on first run
 function getApiKey() { return localStorage.getItem('impressionism_api_key') || ''; }
 function saveApiKey(k) { localStorage.setItem('impressionism_api_key', k); }
-function checkApiKey() { if (!getApiKey()) document.getElementById('api-modal').style.display = 'flex'; }
+
+// Show setup modal if no key saved
+function checkApiKey() {
+  if (!getApiKey()) showApiModal();
+}
+
+function showApiModal() {
+  document.getElementById('api-modal').style.display = 'flex';
+}
+
 function saveAndClose() {
   const val = document.getElementById('api-key-input').value.trim();
   if (!val.startsWith('sk-')) { alert('Please enter a valid OpenAI API key (starts with sk-)'); return; }
@@ -502,150 +633,306 @@ function saveAndClose() {
   document.getElementById('api-modal').style.display = 'none';
 }
 
-const PROMPT = `Transform this photograph into a luminous Impressionist oil painting in the style of Renoir and Monet. Place the subject in an idyllic scene — a sun-dappled Parisian garden with blooming roses and weeping willows, or a peaceful riverside meadow in golden afternoon light. Use loose, expressive brushstrokes with visible texture. Bathe the scene in warm golden light with soft violet shadows. Apply a vibrant yet harmonious color palette: rich ceruleans, warm cadmium yellows, soft rose pinks, and impressionistic greens. Render the subject beautifully and flatteringly — glowing skin, luminous eyes, graceful presence. Preserve their likeness and identity. The overall mood should be joyful, warm, and alive. Painterly, not photorealistic. 19th century French Impressionism.`;
+const PROMPT = `Transform this photograph into a luminous Impressionist oil painting in the style of Renoir and Monet. Place the subject in an idyllic scene — a sun-dappled Parisian garden with blooming roses and weeping willows, or a peaceful riverside meadow in golden afternoon light.
 
-const FUN_FACTS = ['"Impressionism" started as a joke — a critic mocked Monet\'s painting in 1874. The artists loved the name and kept it.','The tube of paint (invented 1841) made Impressionism possible. Renoir said: "Without tubes, there would be no Impressionism."','Monet painted his Water Lilies while nearly blind from cataracts — giving them their dreamy, hazy quality.','The first Impressionist show was savagely mocked. Today those same paintings sell for hundreds of millions.','Renoir painted "Luncheon of the Boating Party" on the Seine — he later married Aline, the woman holding the small dog.','Pissarro was the only artist in all 8 Impressionist exhibitions — the group\'s mentor and heart.','Impressionists used bold, unmixed colors side-by-side. The eye blends them from a distance — vibrant optical magic!','Monet built his famous water garden at Giverny himself. The garden still exists and you can visit it today!','Berthe Morisot was a founding Impressionist — the first major art movement to include women prominently.','Impressionists painted "en plein air" — outdoors in natural light — which was revolutionary in their era.'];
-const COMPLIMENTS = ['The light catches you beautifully in this scene.','You look radiant — as though you stepped out of a dream.','The artist has captured something timeless about you.','Golden afternoon light suits you perfectly.','You belong in a masterpiece.','A portrait worthy of the Louvre.','The brushstrokes reveal your natural warmth and grace.'];
-const GALLERY = [{title:'Water Lilies',artist:'Claude Monet',year:1906,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/600px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg'},{title:'Impression, Sunrise',artist:'Claude Monet',year:1872,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/600px-Monet_-_Impression%2C_Sunrise.jpg'},{title:'Dance at Le Moulin',artist:'Pierre-Auguste Renoir',year:1876,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Mus%C3%A9e_d%27Orsay_RF_2739_%28derivative_work_-_AutoContrast_enh_0.5pc%29.jpg/600px-Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Mus%C3%A9e_d%27Orsay_RF_2739_%28derivative_work_-_AutoContrast_enh_0.5pc%29.jpg'},{title:'Luncheon of the Boating Party',artist:'Pierre-Auguste Renoir',year:1881,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Renoir_-_Luncheon_of_the_Boating_Party.jpg/600px-Renoir_-_Luncheon_of_the_Boating_Party.jpg'},{title:'Boulevard Montmartre',artist:'Camille Pissarro',year:1897,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/600px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg'},{title:'The Cradle',artist:'Berthe Morisot',year:1872,url:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Berthe_Morisot_-_In_the_Cradle_%281872%29.jpg/480px-Berthe_Morisot_-_In_the_Cradle_%281872%29.jpg'}];
+Use loose, expressive brushstrokes with visible texture. Bathe the scene in warm golden light with soft violet shadows. Apply a vibrant yet harmonious color palette: rich ceruleans, warm cadmium yellows, soft rose pinks, and impressionistic greens.
 
-let stream=null,capturedDataUrl=null,resultDataUrl=null,factInterval=null,progressInterval=null,currentFactIndex=0,abortController=null;
+Render the subject beautifully and flatteringly — glowing skin, luminous eyes, graceful presence. Preserve their likeness and identity. The overall mood should be joyful, warm, and alive. Painterly, not photorealistic. 19th century French Impressionism.`;
 
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
-function scrollToCapture(){document.getElementById('capture').scrollIntoView({behavior:'smooth'});}
-function scrollTo(sel){document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});}
+const FUN_FACTS = [
+  '"Impressionism" started as a joke — a critic mocked Monet\'s painting in 1874. The artists loved the name and kept it.',
+  'The tube of paint (invented 1841) made Impressionism possible. Renoir said: "Without tubes, there would be no Impressionism."',
+  'Monet painted his Water Lilies while nearly blind from cataracts — giving them their dreamy, hazy quality.',
+  'The first Impressionist show was savagely mocked. Today those same paintings sell for hundreds of millions.',
+  'Renoir painted "Luncheon of the Boating Party" on the Seine — he later married Aline, the woman holding the small dog.',
+  'Pissarro was the only artist in all 8 Impressionist exhibitions — the group\'s mentor and heart.',
+  'Impressionists used bold, unmixed colors side-by-side. The eye blends them from a distance — vibrant optical magic!',
+  'Monet built his famous water garden at Giverny himself. The garden still exists and you can visit it today!',
+  'Berthe Morisot was a founding Impressionist — the first major art movement to include women prominently.',
+  'Impressionists painted "en plein air" — outdoors in natural light — which was revolutionary in their era.',
+];
 
-function switchTab(tab){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.capture-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-'+tab).classList.add('active');
-  document.getElementById('panel-'+tab).classList.add('active');
-  if(tab==='camera')startCamera(); else stopCamera();
+const COMPLIMENTS = [
+  'The light catches you beautifully in this scene.',
+  'You look radiant — as though you stepped out of a dream.',
+  'The artist has captured something timeless about you.',
+  'Golden afternoon light suits you perfectly.',
+  'You belong in a masterpiece.',
+  'A portrait worthy of the Louvre.',
+  'The brushstrokes reveal your natural warmth and grace.',
+];
+
+const GALLERY = [
+  { title:'Water Lilies', artist:'Claude Monet', year:1906, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/600px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg' },
+  { title:'Impression, Sunrise', artist:'Claude Monet', year:1872, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/600px-Monet_-_Impression%2C_Sunrise.jpg' },
+  { title:'Dance at Le Moulin', artist:'Pierre-Auguste Renoir', year:1876, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Mus%C3%A9e_d%27Orsay_RF_2739_%28derivative_work_-_AutoContrast_enh_0.5pc%29.jpg/600px-Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Mus%C3%A9e_d%27Orsay_RF_2739_%28derivative_work_-_AutoContrast_enh_0.5pc%29.jpg' },
+  { title:'Luncheon of the Boating Party', artist:'Pierre-Auguste Renoir', year:1881, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Renoir_-_Luncheon_of_the_Boating_Party.jpg/600px-Renoir_-_Luncheon_of_the_Boating_Party.jpg' },
+  { title:'Boulevard Montmartre', artist:'Camille Pissarro', year:1897, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/600px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg' },
+  { title:'The Cradle', artist:'Berthe Morisot', year:1872, url:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Berthe_Morisot_-_In_the_Cradle_%281872%29.jpg/480px-Berthe_Morisot_-_In_the_Cradle_%281872%29.jpg' },
+];
+
+// ─── STATE ────────────────────────────────────────────────
+let stream = null;
+let capturedDataUrl = null;
+let resultDataUrl = null;
+let factInterval = null;
+let progressInterval = null;
+let currentFactIndex = 0;
+let abortController = null;
+
+// ─── NAV ──────────────────────────────────────────────────
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function scrollToCapture() { document.getElementById('capture').scrollIntoView({ behavior: 'smooth' }); }
+function scrollTo(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
+
+// ─── TABS ─────────────────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.capture-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+  if (tab === 'camera') startCamera();
+  else stopCamera();
 }
 
-async function startCamera(){
-  const video=document.getElementById('video'),btn=document.getElementById('capture-btn'),errEl=document.getElementById('camera-error');
-  errEl.style.display='none'; video.style.display='block';
-  if(!navigator.mediaDevices?.getUserMedia){showCameraError('Camera not supported. Please use the Upload tab instead.');return;}
-  try{
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});
-    video.srcObject=stream;
-    video.onloadedmetadata=()=>{btn.disabled=false;btn.textContent='📷 Capture My Portrait';};
-  }catch(e){
-    showCameraError(e.name==='NotAllowedError'?'Camera access denied. Please allow camera access or use the Upload tab.':'Could not start camera. Please use the Upload tab instead.');
+// ─── CAMERA ───────────────────────────────────────────────
+async function startCamera() {
+  const video = document.getElementById('video');
+  const btn = document.getElementById('capture-btn');
+  const errEl = document.getElementById('camera-error');
+  errEl.style.display = 'none';
+  video.style.display = 'block';
+  if (!navigator.mediaDevices?.getUserMedia) {
+    showCameraError('Camera not supported. Please use the Upload tab instead.');
+    return;
+  }
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width:{ideal:1280}, height:{ideal:720} } });
+    video.srcObject = stream;
+    video.onloadedmetadata = () => { btn.disabled = false; btn.textContent = '📷 Capture My Portrait'; };
+  } catch(e) {
+    const msg = e.name === 'NotAllowedError'
+      ? 'Camera access denied. Please allow camera access in your browser settings, or use the Upload tab.'
+      : 'Could not start camera. Please use the Upload tab instead.';
+    showCameraError(msg);
   }
 }
-function showCameraError(msg){document.getElementById('video').style.display='none';const err=document.getElementById('camera-error');err.style.display='block';err.innerHTML='⚠️ '+msg;document.getElementById('capture-btn').disabled=true;document.getElementById('capture-btn').textContent='Camera unavailable';}
-function stopCamera(){stream?.getTracks().forEach(t=>t.stop());stream=null;}
-function capturePhoto(){
-  const video=document.getElementById('video'),canvas=document.createElement('canvas');
-  canvas.width=video.videoWidth;canvas.height=video.videoHeight;
-  const ctx=canvas.getContext('2d');ctx.translate(canvas.width,0);ctx.scale(-1,1);ctx.drawImage(video,0,0);
-  capturedDataUrl=canvas.toDataURL('image/jpeg',0.92);showPreview(capturedDataUrl);
+
+function showCameraError(msg) {
+  document.getElementById('video').style.display = 'none';
+  const err = document.getElementById('camera-error');
+  err.style.display = 'block';
+  err.innerHTML = '⚠️ ' + msg;
+  document.getElementById('capture-btn').disabled = true;
+  document.getElementById('capture-btn').textContent = 'Camera unavailable';
 }
-function handleDragOver(e){e.preventDefault();document.getElementById('upload-zone').classList.add('drag-over');}
-function handleDragLeave(){document.getElementById('upload-zone').classList.remove('drag-over');}
-function handleDrop(e){e.preventDefault();handleDragLeave();const file=e.dataTransfer.files[0];if(file)processUploadFile(file);}
-function handleFile(e){const file=e.target.files[0];if(file)processUploadFile(file);}
-function processUploadFile(file){
-  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){alert('Please use a JPEG, PNG, or WebP image.');return;}
-  if(file.size>20*1024*1024){alert('File too large. Please use an image under 20MB.');return;}
-  const reader=new FileReader();reader.onload=e=>{capturedDataUrl=e.target.result;showPreview(capturedDataUrl);};reader.readAsDataURL(file);
+
+function stopCamera() {
+  stream?.getTracks().forEach(t => t.stop());
+  stream = null;
 }
-function showPreview(dataUrl){
+
+function capturePhoto() {
+  const video = document.getElementById('video');
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.translate(canvas.width, 0); ctx.scale(-1, 1);
+  ctx.drawImage(video, 0, 0);
+  capturedDataUrl = canvas.toDataURL('image/jpeg', 0.92);
+  showPreview(capturedDataUrl);
+}
+
+// ─── UPLOAD ───────────────────────────────────────────────
+function handleDragOver(e) { e.preventDefault(); document.getElementById('upload-zone').classList.add('drag-over'); }
+function handleDragLeave() { document.getElementById('upload-zone').classList.remove('drag-over'); }
+function handleDrop(e) { e.preventDefault(); handleDragLeave(); const file = e.dataTransfer.files[0]; if (file) processUploadFile(file); }
+function handleFile(e) { const file = e.target.files[0]; if (file) processUploadFile(file); }
+
+function processUploadFile(file) {
+  if (!['image/jpeg','image/png','image/webp'].includes(file.type)) { alert('Please use a JPEG, PNG, or WebP image.'); return; }
+  if (file.size > 20 * 1024 * 1024) { alert('File too large. Please use an image under 20MB.'); return; }
+  const reader = new FileReader();
+  reader.onload = e => { capturedDataUrl = e.target.result; showPreview(capturedDataUrl); };
+  reader.readAsDataURL(file);
+}
+
+// ─── PREVIEW ──────────────────────────────────────────────
+function showPreview(dataUrl) {
   document.getElementById('panel-camera').classList.remove('active');
   document.getElementById('panel-upload').classList.remove('active');
-  document.getElementById('preview-img').src=dataUrl;
-  document.getElementById('preview-wrap').style.display='flex';
+  document.getElementById('preview-img').src = dataUrl;
+  document.getElementById('preview-wrap').style.display = 'flex';
 }
-function retake(){
-  document.getElementById('preview-wrap').style.display='none';capturedDataUrl=null;
-  const active=document.querySelector('.tab.active')?.id?.replace('tab-','')||'camera';
-  document.getElementById('panel-'+active).classList.add('active');
-  if(active==='camera')startCamera();
+
+function retake() {
+  document.getElementById('preview-wrap').style.display = 'none';
+  capturedDataUrl = null;
+  const active = document.querySelector('.tab.active')?.id?.replace('tab-','') || 'camera';
+  document.getElementById('panel-' + active).classList.add('active');
+  if (active === 'camera') startCamera();
 }
-async function paintMe(){
-  if(!capturedDataUrl)return;
-  stopCamera();showProcessing(capturedDataUrl);
-  const compressed=await compressImage(capturedDataUrl,1024,0.88);
-  const blob=dataUrlToBlob(compressed);
-  const formData=new FormData();
-  formData.append('model','gpt-image-1');formData.append('image',blob,'photo.jpg');
-  formData.append('prompt',PROMPT);formData.append('n','1');formData.append('size','1024x1024');
-  abortController=new AbortController();
-  try{
-    const res=await fetch('https://api.openai.com/v1/images/edits',{method:'POST',headers:{'Authorization':'Bearer '+getApiKey()},body:formData,signal:abortController.signal});
-    if(!res.ok){const err=await res.json().catch(()=>({}));throw new Error(err?.error?.message||'API error '+res.status);}
-    const data=await res.json();
-    const b64=data.data?.[0]?.b64_json;
-    if(!b64)throw new Error('No image returned');
-    resultDataUrl='data:image/png;base64,'+b64;
-    hideProcessing();showResult(capturedDataUrl,resultDataUrl);
-  }catch(e){
-    if(e.name==='AbortError')return;
-    hideProcessing();alert('Something went wrong: '+e.message+'\n\nPlease check your internet connection and try again.');
+
+// ─── TRANSFORM ────────────────────────────────────────────
+async function paintMe() {
+  if (!capturedDataUrl) return;
+  stopCamera();
+  showProcessing(capturedDataUrl);
+
+  // Prepare square PNG for dall-e-2 (much faster than gpt-image-1)
+  const png = await squarePng(capturedDataUrl, 512);
+  const blob = dataUrlToBlob(png);
+
+  const formData = new FormData();
+  formData.append('model', 'dall-e-2');
+  formData.append('image', blob, 'photo.png');
+  formData.append('prompt', PROMPT);
+  formData.append('n', '1');
+  formData.append('size', '512x512');
+  formData.append('response_format', 'b64_json');
+
+  abortController = new AbortController();
+  try {
+    const res = await fetch('https://api.openai.com/v1/images/edits', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + getApiKey() },
+      body: formData,
+      signal: abortController.signal,
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err?.error?.message || 'API error ' + res.status);
+    }
+    const data = await res.json();
+    const b64 = data.data?.[0]?.b64_json;
+    if (!b64) throw new Error('No image returned');
+    resultDataUrl = 'data:image/png;base64,' + b64;
+    hideProcessing();
+    showResult(capturedDataUrl, resultDataUrl);
+  } catch(e) {
+    if (e.name === 'AbortError') return;
+    hideProcessing();
+    alert('Something went wrong: ' + e.message + '\n\nPlease check your internet connection and try again.');
   }
 }
-function cancelTransform(){abortController?.abort();hideProcessing();retake();}
-function showProcessing(bgDataUrl){
-  document.getElementById('processing-bg').style.backgroundImage=`url(${bgDataUrl})`;
-  document.getElementById('processing-overlay').classList.add('show');
-  currentFactIndex=0;document.getElementById('fact-text').textContent=FUN_FACTS[0];
-  factInterval=setInterval(()=>{
-    const el=document.getElementById('fact-text');el.style.opacity='0';
-    setTimeout(()=>{currentFactIndex=(currentFactIndex+1)%FUN_FACTS.length;el.textContent=FUN_FACTS[currentFactIndex];el.style.opacity='1';},400);
-  },4000);
-  let pct=0;progressInterval=setInterval(()=>{pct=Math.min(pct+2.2,94);document.getElementById('progress-fill').style.width=pct+'%';},1000);
+
+function cancelTransform() { abortController?.abort(); hideProcessing(); retake(); }
+
+// ─── PROCESSING UI ────────────────────────────────────────
+function showProcessing(bgDataUrl) {
+  const overlay = document.getElementById('processing-overlay');
+  document.getElementById('processing-bg').style.backgroundImage = `url(${bgDataUrl})`;
+  overlay.classList.add('show');
+  currentFactIndex = 0;
+  document.getElementById('fact-text').textContent = FUN_FACTS[0];
+  factInterval = setInterval(() => {
+    const el = document.getElementById('fact-text');
+    el.style.opacity = '0';
+    setTimeout(() => {
+      currentFactIndex = (currentFactIndex + 1) % FUN_FACTS.length;
+      el.textContent = FUN_FACTS[currentFactIndex];
+      el.style.opacity = '1';
+    }, 400);
+  }, 4000);
+  let pct = 0;
+  progressInterval = setInterval(() => {
+    pct = Math.min(pct + 2.2, 94);
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }, 1000);
 }
-function hideProcessing(){document.getElementById('processing-overlay').classList.remove('show');clearInterval(factInterval);clearInterval(progressInterval);document.getElementById('progress-fill').style.width='0%';}
-function showResult(original,painting){
-  document.getElementById('result-original').src=original;document.getElementById('result-painting').src=painting;
-  document.getElementById('result-compliment').textContent='"'+COMPLIMENTS[Math.floor(Math.random()*COMPLIMENTS.length)]+'"';
-  document.getElementById('preview-wrap').style.display='none';
-  const resultEl=document.getElementById('result');resultEl.classList.add('show');
-  setTimeout(()=>resultEl.scrollIntoView({behavior:'smooth'}),100);
+
+function hideProcessing() {
+  document.getElementById('processing-overlay').classList.remove('show');
+  clearInterval(factInterval); clearInterval(progressInterval);
+  document.getElementById('progress-fill').style.width = '0%';
 }
-function downloadPainting(){
-  if(!resultDataUrl)return;
-  if(/iPad|iPhone|iPod/.test(navigator.userAgent)){window.open(resultDataUrl,'_blank');return;}
-  const a=document.createElement('a');a.href=resultDataUrl;a.download='my-impressionist-portrait.png';a.click();
+
+// ─── RESULT ───────────────────────────────────────────────
+function showResult(original, painting) {
+  document.getElementById('result-original').src = original;
+  document.getElementById('result-painting').src = painting;
+  document.getElementById('result-compliment').textContent = '"' + COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)] + '"';
+  document.getElementById('preview-wrap').style.display = 'none';
+  const resultEl = document.getElementById('result');
+  resultEl.classList.add('show');
+  setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth' }), 100);
 }
-function sharePainting(){
-  const text='I just transformed myself into an Impressionist painting! 🎨';
-  if(navigator.share){navigator.share({title:'My Impressionist Portrait',text}).catch(()=>{});}  
-  else{navigator.clipboard.writeText(text).then(()=>alert('Share text copied!'));}
+
+function downloadPainting() {
+  if (!resultDataUrl) return;
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  if (isIOS) { window.open(resultDataUrl, '_blank'); return; }
+  const a = document.createElement('a');
+  a.href = resultDataUrl; a.download = 'my-impressionist-portrait.png'; a.click();
 }
-function tryAgain(){
-  document.getElementById('result').classList.remove('show');capturedDataUrl=null;resultDataUrl=null;
-  document.getElementById('preview-wrap').style.display='none';
-  const active=document.querySelector('.tab.active')?.id?.replace('tab-','')||'camera';
-  document.getElementById('panel-'+active).classList.add('active');
-  if(active==='camera')startCamera();
-  document.getElementById('capture').scrollIntoView({behavior:'smooth'});
+
+function sharePainting() {
+  const text = 'I just transformed myself into an Impressionist painting! 🎨';
+  if (navigator.share) { navigator.share({ title: 'My Impressionist Portrait', text }).catch(() => {}); }
+  else { navigator.clipboard.writeText(text).then(() => alert('Share text copied!')); }
 }
-function compressImage(dataUrl,maxPx,quality){
-  return new Promise((resolve,reject)=>{
-    const img=new Image();img.onload=()=>{
-      let {width,height}=img;
-      if(width>maxPx||height>maxPx){if(width>height){height=Math.round(height*maxPx/width);width=maxPx;}else{width=Math.round(width*maxPx/height);height=maxPx;}}
-      const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;
-      canvas.getContext('2d').drawImage(img,0,0,width,height);resolve(canvas.toDataURL('image/jpeg',quality));
-    };img.onerror=reject;img.src=dataUrl;
+
+function tryAgain() {
+  document.getElementById('result').classList.remove('show');
+  capturedDataUrl = null; resultDataUrl = null;
+  document.getElementById('preview-wrap').style.display = 'none';
+  const active = document.querySelector('.tab.active')?.id?.replace('tab-','') || 'camera';
+  document.getElementById('panel-' + active).classList.add('active');
+  if (active === 'camera') startCamera();
+  document.getElementById('capture').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ─── IMAGE UTILS ──────────────────────────────────────────
+// Square-crop and resize to px×px, output PNG (required by dall-e-2)
+function squarePng(dataUrl, px) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const s = Math.min(img.width, img.height);
+      const canvas = document.createElement('canvas');
+      canvas.width = px; canvas.height = px;
+      canvas.getContext('2d').drawImage(
+        img,
+        (img.width - s) / 2, (img.height - s) / 2, s, s,
+        0, 0, px, px
+      );
+      resolve(canvas.toDataURL('image/png'));
+    };
+    img.onerror = reject;
+    img.src = dataUrl;
   });
 }
-function dataUrlToBlob(dataUrl){
-  const[header,data]=dataUrl.split(','),mime=header.match(/:(.*?);/)[1],binary=atob(data),bytes=new Uint8Array(binary.length);
-  for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
-  return new Blob([bytes],{type:mime});
+
+function dataUrlToBlob(dataUrl) {
+  const [header, data] = dataUrl.split(',');
+  const mime = header.match(/:(.*?);/)[1];
+  const binary = atob(data);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new Blob([bytes], { type: mime });
 }
-function renderGallery(){
-  const grid=document.getElementById('gallery-grid');
-  GALLERY.forEach(p=>{
-    const card=document.createElement('div');card.className='gallery-card';
-    card.innerHTML=`<img src="${p.url}" alt="${p.title}" loading="lazy" /><div class="gallery-card-info"><div class="gallery-card-title">${p.title}</div><div class="gallery-card-artist">${p.artist}, ${p.year}</div></div>`;
+
+// ─── GALLERY ──────────────────────────────────────────────
+function renderGallery() {
+  const grid = document.getElementById('gallery-grid');
+  GALLERY.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'gallery-card';
+    card.innerHTML = `
+      <img src="${p.url}" alt="${p.title}" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">${p.title}</div>
+        <div class="gallery-card-artist">${p.artist}, ${p.year}</div>
+      </div>`;
     grid.appendChild(card);
   });
 }
-renderGallery();startCamera();checkApiKey();
+
+// ─── INIT ─────────────────────────────────────────────────
+renderGallery();
+startCamera();
+checkApiKey();
 </script>
 </body>
 </html>
