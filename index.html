@@ -397,7 +397,7 @@
     <div class="pillars">
       <div class="pillar">
         <div class="pillar-icon" style="background:rgba(201,168,76,.12)">☀️</div>
-        <h3>Light & Color</h3>
+        <h3>Light &amp; Color</h3>
         <p>Impressionists were obsessed with natural light. They painted the same scene at different times of day to show how light transforms everything — a haystack at noon looks nothing like at sunset.</p>
       </div>
       <div class="pillar">
@@ -515,7 +515,7 @@
       <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()"
         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
         <div class="upload-icon">🖼️</div>
-        <div class="upload-title">Drag & drop your photo here</div>
+        <div class="upload-title">Drag &amp; drop your photo here</div>
         <p class="upload-sub">or <strong onclick="document.getElementById('file-input').click()">click to browse</strong></p>
         <p style="margin-top:10px;color:rgba(26,20,16,.35);font-size:.75rem">JPEG, PNG or WebP · Max 20MB</p>
       </div>
@@ -601,14 +601,14 @@
     <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px">Welcome to Impressionism Studio</h2>
     <p style="color:rgba(26,20,16,.6);font-size:.9rem;line-height:1.6;margin-bottom:24px">To transform photos into paintings, paste your OpenAI API key below. It's stored only in your browser — never sent anywhere else.</p>
     <input id="api-key-input" type="password" placeholder="sk-proj-..." style="width:100%;padding:14px 16px;border:2px solid rgba(201,168,76,.3);border-radius:12px;font-size:.95rem;font-family:'Lato',sans-serif;outline:none;background:#fff;margin-bottom:14px;transition:border-color .2s" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" onkeydown="if(event.key==='Enter')saveAndClose()" />
-    <button onclick="saveAndClose()" style="width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#fff;border:none;border-radius:999px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,.35)">Save & Start →</button>
+    <button onclick="saveAndClose()" style="width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#fff;border:none;border-radius:999px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,.35)">Save &amp; Start →</button>
     <p style="margin-top:16px;font-size:.75rem;color:rgba(26,20,16,.4)">Get a free key at <strong>platform.openai.com</strong> → API Keys</p>
   </div>
 </div>
 
 <footer>
   <p>Impressionism Studio — a school project celebrating the art of light, color, and beauty</p>
-  <span>Powered by AI · Inspired by Monet, Renoir & Pissarro</span>
+  <span>Powered by AI · Inspired by Monet, Renoir &amp; Pissarro</span>
 </footer>
 
 <script>
@@ -790,8 +790,6 @@ async function paintMe() {
   formData.append('prompt', PROMPT);
   formData.append('n', '1');
   formData.append('size', '512x512');
-  formData.append('response_format', 'b64_json');
-
   abortController = new AbortController();
   try {
     const res = await fetch('https://api.openai.com/v1/images/edits', {
@@ -805,9 +803,9 @@ async function paintMe() {
       throw new Error(err?.error?.message || 'API error ' + res.status);
     }
     const data = await res.json();
-    const b64 = data.data?.[0]?.b64_json;
-    if (!b64) throw new Error('No image returned');
-    resultDataUrl = 'data:image/png;base64,' + b64;
+    const url = data.data?.[0]?.url;
+    if (!url) throw new Error('No image returned');
+    resultDataUrl = url;
     hideProcessing();
     showResult(capturedDataUrl, resultDataUrl);
   } catch(e) {
