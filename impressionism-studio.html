@@ -417,10 +417,10 @@
 
     <div class="artists-grid">
       <div class="artist-card">
-        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/800px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="Water Lilies" loading="lazy" />
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/800px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg" alt="Water Lilies" loading="lazy" referrerpolicy="no-referrer" />
         <div class="artist-info">
           <div class="artist-head">
-            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/440px-Claude_Monet_1899_Nadar_crop.jpg" alt="Monet" loading="lazy" />
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/440px-Claude_Monet_1899_Nadar_crop.jpg" alt="Monet" loading="lazy" referrerpolicy="no-referrer" />
             <div><div class="artist-name">Claude Monet</div><div class="artist-years">1840–1926</div></div>
           </div>
           <p class="artist-desc">The father of Impressionism. Monet painted his famous Water Lilies while almost blind — their dreamy haze came from his cataracts. He created 250 Water Lily paintings.</p>
@@ -436,10 +436,10 @@
       </div>
 
       <div class="artist-card">
-        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bougival.jpg/800px-Bougival.jpg" alt="Dance at Bougival" loading="lazy" />
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Bougival.jpg/800px-Bougival.jpg" alt="Dance at Bougival" loading="lazy" referrerpolicy="no-referrer" />
         <div class="artist-info">
           <div class="artist-head">
-            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg/440px-Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg" alt="Renoir" loading="lazy" />
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg/440px-Pierre-Auguste_Renoir_-_Self-Portrait_-_1875.jpg" alt="Renoir" loading="lazy" referrerpolicy="no-referrer" />
             <div><div class="artist-name">Pierre-Auguste Renoir</div><div class="artist-years">1841–1919</div></div>
           </div>
           <p class="artist-desc">Renoir painted the joy of life. His portraits radiate warmth — figures glow as if lit from within. He created over 6,000 paintings and married a woman he painted.</p>
@@ -455,10 +455,10 @@
       </div>
 
       <div class="artist-card">
-        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/800px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg" alt="Boulevard Montmartre" loading="lazy" />
+        <img class="artist-painting" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg/800px-Boulevard_Montmartre%2C_Afternoon_Sunshine_%281897%29.jpg" alt="Boulevard Montmartre" loading="lazy" referrerpolicy="no-referrer" />
         <div class="artist-info">
           <div class="artist-head">
-            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Camille_Pissarro_-_Self-Portrait_-_1873.jpg/440px-Camille_Pissarro_-_Self-Portrait_-_1873.jpg" alt="Pissarro" loading="lazy" />
+            <img class="artist-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Camille_Pissarro_-_Self-Portrait_-_1873.jpg/440px-Camille_Pissarro_-_Self-Portrait_-_1873.jpg" alt="Pissarro" loading="lazy" referrerpolicy="no-referrer" />
             <div><div class="artist-name">Camille Pissarro</div><div class="artist-years">1830–1903</div></div>
           </div>
           <p class="artist-desc">The "dean of the Impressionists" — the only artist to show in all 8 Impressionist exhibitions. He mentored Cézanne and Gauguin, painting rural life and Parisian boulevards.</p>
@@ -780,16 +780,17 @@ async function paintMe() {
   stopCamera();
   showProcessing(capturedDataUrl);
 
-  // Compress client-side before sending
-  const compressed = await compressImage(capturedDataUrl, 1024, 0.88);
-  const blob = dataUrlToBlob(compressed);
+  // Prepare square PNG for dall-e-2 (much faster than gpt-image-1)
+  const png = await squarePng(capturedDataUrl, 512);
+  const blob = dataUrlToBlob(png);
 
   const formData = new FormData();
-  formData.append('model', 'gpt-image-1');
-  formData.append('image', blob, 'photo.jpg');
+  formData.append('model', 'dall-e-2');
+  formData.append('image', blob, 'photo.png');
   formData.append('prompt', PROMPT);
   formData.append('n', '1');
-  formData.append('size', '1024x1024');
+  formData.append('size', '512x512');
+  formData.append('response_format', 'b64_json');
 
   abortController = new AbortController();
   try {
@@ -883,19 +884,20 @@ function tryAgain() {
 }
 
 // ─── IMAGE UTILS ──────────────────────────────────────────
-function compressImage(dataUrl, maxPx, quality) {
+// Square-crop and resize to px×px, output PNG (required by dall-e-2)
+function squarePng(dataUrl, px) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
-      let {width, height} = img;
-      if (width > maxPx || height > maxPx) {
-        if (width > height) { height = Math.round(height * maxPx / width); width = maxPx; }
-        else { width = Math.round(width * maxPx / height); height = maxPx; }
-      }
+      const s = Math.min(img.width, img.height);
       const canvas = document.createElement('canvas');
-      canvas.width = width; canvas.height = height;
-      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-      resolve(canvas.toDataURL('image/jpeg', quality));
+      canvas.width = px; canvas.height = px;
+      canvas.getContext('2d').drawImage(
+        img,
+        (img.width - s) / 2, (img.height - s) / 2, s, s,
+        0, 0, px, px
+      );
+      resolve(canvas.toDataURL('image/png'));
     };
     img.onerror = reject;
     img.src = dataUrl;
@@ -918,7 +920,7 @@ function renderGallery() {
     const card = document.createElement('div');
     card.className = 'gallery-card';
     card.innerHTML = `
-      <img src="${p.url}" alt="${p.title}" loading="lazy" />
+      <img src="${p.url}" alt="${p.title}" loading="lazy" referrerpolicy="no-referrer" />
       <div class="gallery-card-info">
         <div class="gallery-card-title">${p.title}</div>
         <div class="gallery-card-artist">${p.artist}, ${p.year}</div>
