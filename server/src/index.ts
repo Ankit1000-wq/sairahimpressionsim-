@@ -4,7 +4,10 @@ import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
 import transformRouter from './routes/transform';
 
-dotenv.config();
+import path from 'path';
+// Load .env from repo root or server/ dir
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config(); // fallback
 
 const app = express();
 const PORT = parseInt(process.env.PORT ?? '3001', 10);
